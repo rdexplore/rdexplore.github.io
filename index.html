@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ritwick Das — AI Strategist & Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0f0e;
+    --ink-soft: #3a3a36;
+    --ink-muted: #7a7a72;
+    --paper: #f5f3ee;
+    --paper-warm: #ede9e0;
+    --paper-card: #faf8f4;
+    --accent: #b8622a;
+    --accent-light: #e8d5c4;
+    --accent-dark: #7a3f18;
+    --rule: rgba(15,15,14,0.12);
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-mono: 'DM Mono', monospace;
+    --font-body: 'Outfit', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 4rem;
+    background: rgba(245,243,238,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+
+  .hero-left {
+    padding: 8rem 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 0.5px solid var(--rule);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--ink-muted);
+    margin-bottom: 3rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--accent); }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border: 0.5px solid var(--ink-soft);
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-right {
+    padding: 8rem 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: 'AI';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: 22rem;
+    font-weight: 600;
+    color: rgba(184,98,42,0.05);
+    pointer-events: none;
+    letter-spacing: -0.05em;
+    white-space: nowrap;
+  }
+
+  .hero-stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .hero-stat {
+    padding: 2rem 1.5rem;
+    background: var(--paper-card);
+    border: 0.5px solid var(--rule);
+  }
+
+  .hero-stat-number {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* SECTION COMMONS */
+  section { padding: 7rem 4rem; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .section-number {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  /* ABOUT */
+  #about { background: var(--paper-warm); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-left {}
+
+  .about-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--paper-card);
+    border: 0.5px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-photo-placeholder span {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .about-photo-placeholder svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    stroke: var(--ink-muted);
+    stroke-width: 1;
+    fill: none;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+    padding: 0.6rem 0;
+    border-bottom: 0.5px solid var(--rule);
+  }
+
+  .social-link:hover { color: var(--accent); }
+
+  .social-link svg {
+    width: 1rem;
+    height: 1rem;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    fill: none;
+    flex-shrink: 0;
+  }
+
+  .about-right {}
+
+  .about-bio {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--ink-soft);
+    margin-bottom: 3rem;
+  }
+
+  .about-bio strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .cert-block {
+    margin-bottom: 3rem;
+  }
+
+  .block-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+  }
+
+  .cert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cert-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    padding: 0.9rem 1rem;
+    background: var(--paper-card);
+    border-left: 2px solid var(--accent-light);
+  }
+
+  .cert-list li::before {
+    content: '—';
+    font-family: var(--font-mono);
+    color: var(--accent);
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    margin-top: 0.1rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+  }
+
+  .value-item {
+    background: var(--paper-card);
+    padding: 1.25rem 1rem;
+  }
+
+  .value-title {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .value-desc {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* APPLICATIONS */
+  #applications { background: var(--paper); }
+
+  .apps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .app-card {
+    background: var(--paper-card);
+    border: 0.5px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .app-card:hover { border-color: var(--accent); }
+
+  .app-card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--paper-warm);
+    border-bottom: 0.5px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .app-card-image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .app-card-image-placeholder svg {
+    width: 2rem;
+    height: 2rem;
+    stroke: var(--ink-muted);
+    stroke-width: 1;
+    fill: none;
+    opacity: 0.5;
+  }
+
+  .app-card-image-placeholder span {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    opacity: 0.6;
+  }
+
+  .app-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .app-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.3rem 0.6rem;
+  }
+
+  .app-card-body {
+    padding: 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .app-card-name {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .app-card-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .app-card-desc {
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .app-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--rule);
+  }
+
+  .app-tech-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .tech-tag {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    border: 0.5px solid var(--rule);
+    padding: 0.2rem 0.5rem;
+  }
+
+  .app-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    transition: gap 0.2s;
+    flex-shrink: 0;
+  }
+
+  .app-link:hover { gap: 0.7rem; }
+
+  .app-link svg {
+    width: 0.8rem;
+    height: 0.8rem;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  /* THINKING */
+  #thinking { background: var(--paper-warm); }
+
+  .thinking-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .thinking-card {
+    background: var(--paper-card);
+    border: 0.5px solid var(--rule);
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.25s;
+  }
+
+  .thinking-card:hover { border-color: var(--accent); }
+
+  .thinking-type {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .thinking-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+
+  .thinking-desc {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .thinking-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    transition: color 0.2s, gap 0.2s;
+    border-top: 0.5px solid var(--rule);
+    padding-top: 1rem;
+  }
+
+  .thinking-link:hover { color: var(--accent); gap: 0.7rem; }
+
+  .thinking-link svg {
+    width: 0.75rem;
+    height: 0.75rem;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  .thinking-placeholder {
+    background: var(--paper-card);
+    border: 0.5px dashed var(--rule);
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 200px;
+  }
+
+  .thinking-placeholder span {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    opacity: 0.5;
+    text-align: center;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--paper);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,243,238,0.4);
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin-bottom: 1rem;
+    justify-content: flex-end;
+  }
+
+  .footer-links a {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,243,238,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  .footer-copy {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    color: rgba(245,243,238,0.25);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(1.5rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-name { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-title { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-stat-grid { animation: fadeUp 0.6s 0.2s ease both; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 7rem 1.5rem 3rem; border-right: none; border-bottom: 0.5px solid var(--rule); }
+    .hero-right { padding: 3rem 1.5rem 4rem; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .apps-grid { grid-template-columns: 1fr; }
+    .thinking-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 2rem; align-items: flex-start; }
+    .footer-right { text-align: left; }
+    .footer-links { justify-content: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Ritwick Das</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#applications">Applications</a></li>
+    <li><a href="#thinking">Thinking</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">AI Strategist &amp; Builder</p>
+    <h1 class="hero-name">Ritwick<br><em>Das</em></h1>
+    <p class="hero-title">Strategy × Applied AI × Governance</p>
+    <div class="hero-cta">
+      <a href="#applications" class="btn-primary">View Applications</a>
+      <a href="#about" class="btn-outline">About Me</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-grid">
+      <div class="hero-stat">
+        <div class="hero-stat-number">13+</div>
+        <div class="hero-stat-label">Years Global Consulting</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">4</div>
+        <div class="hero-stat-label">Live AI Applications</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">ISO</div>
+        <div class="hero-stat-label">42001 Lead Implementer</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-number">∞</div>
+        <div class="hero-stat-label">Curiosity Remaining</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">About Me</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-left">
+      <div class="about-photo-placeholder">
+        <!-- Replace this block with: <img src="assets/images/your-photo.jpg" alt="Ritwick Das"> -->
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        <span>Add your photo here</span>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/ritwick-das" target="_blank" rel="noopener" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/rdexplore" target="_blank" rel="noopener" class="social-link">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub / rdexplore
+        </a>
+      </div>
+    </div>
+    <div class="about-right">
+      <p class="about-bio">
+        I'm an <strong>AI strategist and builder</strong> with 13+ years of global consulting experience advising enterprises in strategy and AI activation roadmaps, while independently building across the applied AI stack: multi-agent governance validators, multi-model finance intelligence pipelines, and MCP-based workflow automations.
+        <br><br>
+        On the governance side, I'm an <strong>ISO 42001 Lead Implementer</strong> certified and have designed responsible AI frameworks for clients in regulated environments.
+        <br><br>
+        My pivot towards AI is driven by the conviction that the most valuable people in the AI era are those who can think strategically about where AI creates value — and are fluent enough in the technology to actually make it happen.
+      </p>
+
+      <div class="cert-block">
+        <p class="block-label">Certifications</p>
+        <ul class="cert-list">
+          <li>ISO 42001 Lead Implementer — AI Management Systems</li>
+          <li><!-- Add certification 2 here --></li>
+          <li><!-- Add certification 3 here --></li>
+        </ul>
+      </div>
+
+      <div class="cert-block">
+        <p class="block-label">What I Stand For</p>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-title">Strategic Fluency</div>
+            <div class="value-desc">AI value comes from knowing where to apply it, not just how to build it.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-title">Responsible by Design</div>
+            <div class="value-desc">Governance and capability are not opposing forces — they compound.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-title">Builder Mindset</div>
+            <div class="value-desc">Ideas without implementation are just opinions. Ship, learn, iterate.</div>
+          </div>
+          <div class="value-item">
+            <div class="value-title">Human-Centred AI</div>
+            <div class="value-desc">The best AI systems amplify human judgment, not replace it.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATIONS -->
+<section id="applications">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Applications</h2>
+  </div>
+  <div class="apps-grid">
+
+    <!-- CARD 1: Daily AI Intelligence -->
+    <div class="app-card">
+      <div class="app-card-image">
+        <span class="app-tag">MCP Automation</span>
+        <!-- Replace the placeholder below with:
+             <img src="assets/images/daily-ai-intelligence.png" alt="Daily AI Intelligence screenshot"> -->
+        <div class="app-card-image-placeholder">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <span>Add screenshot here</span>
+        </div>
+      </div>
+      <div class="app-card-body">
+        <h3 class="app-card-name">Daily AI Intelligence</h3>
+        <p class="app-card-subtitle">Automated MCP-driven intelligence pipeline</p>
+        <p class="app-card-desc">
+          <!-- Add your description here. Example: -->
+          An automated intelligence aggregation system built on Model Context Protocol (MCP), delivering curated AI news, research signals, and market developments through a structured daily pipeline. Demonstrates MCP-based workflow orchestration at production scale.
+        </p>
+        <div class="app-card-footer">
+          <div class="app-tech-tags">
+            <span class="tech-tag">MCP</span>
+            <span class="tech-tag">Automation</span>
+            <span class="tech-tag">Python</span>
+          </div>
+          <a href="YOUR_HF_SPACE_URL_HERE" target="_blank" rel="noopener" class="app-link">
+            Launch
+            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Signal -->
+    <div class="app-card">
+      <div class="app-card-image">
+        <span class="app-tag">Multimodal Model</span>
+        <!-- Replace with: <img src="assets/images/signal.png" alt="Signal app screenshot"> -->
+        <div class="app-card-image-placeholder">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span>Add screenshot here</span>
+        </div>
+      </div>
+      <div class="app-card-body">
+        <h3 class="app-card-name">Signal</h3>
+        <p class="app-card-subtitle">Multimodal & specialized model application</p>
+        <p class="app-card-desc">
+          <!-- Add your description here -->
+          A multimodal intelligence application leveraging specialized models to process and synthesize signals across different data modalities. Built to demonstrate applied model selection, prompt engineering, and output structuring at the intersection of finance and AI.
+        </p>
+        <div class="app-card-footer">
+          <div class="app-tech-tags">
+            <span class="tech-tag">Multimodal</span>
+            <span class="tech-tag">HF Spaces</span>
+            <span class="tech-tag">Gradio</span>
+          </div>
+          <a href="YOUR_HF_SPACE_URL_HERE" target="_blank" rel="noopener" class="app-link">
+            Launch
+            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3: GovLens -->
+    <div class="app-card">
+      <div class="app-card-image">
+        <span class="app-tag">Agent Ecosystem</span>
+        <!-- Replace with: <img src="assets/images/govlens.png" alt="GovLens screenshot"> -->
+        <div class="app-card-image-placeholder">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          <span>Add screenshot here</span>
+        </div>
+      </div>
+      <div class="app-card-body">
+        <h3 class="app-card-name">AI GovLens</h3>
+        <p class="app-card-subtitle">Multi-agent governance validation system</p>
+        <p class="app-card-desc">
+          <!-- Add your description here -->
+          A multi-agent ecosystem where specialized AI agents validate each other's outputs against responsible AI principles. Implements a validator-agent architecture with cross-model critique loops, grounded in ISO 42001 governance principles. Applied AI governance in practice.
+        </p>
+        <div class="app-card-footer">
+          <div class="app-tech-tags">
+            <span class="tech-tag">Multi-Agent</span>
+            <span class="tech-tag">ISO 42001</span>
+            <span class="tech-tag">Governance</span>
+          </div>
+          <a href="YOUR_HF_SPACE_URL_HERE" target="_blank" rel="noopener" class="app-link">
+            Launch
+            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4: Mindmap -->
+    <div class="app-card">
+      <div class="app-card-image">
+        <span class="app-tag">Reflective AI</span>
+        <!-- Replace with: <img src="assets/images/mindmap.png" alt="Mindmap screenshot"> -->
+        <div class="app-card-image-placeholder">
+          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5c0 2.5-2 4.5-4.5 5.5M12 22v-4M8 18h8"/><circle cx="12" cy="7" r="2"/></svg>
+          <span>Add screenshot here</span>
+        </div>
+      </div>
+      <div class="app-card-body">
+        <h3 class="app-card-name">Mindmap</h3>
+        <p class="app-card-subtitle">AI-powered mindfulness & reflection tool</p>
+        <p class="app-card-desc">
+          <!-- Add your description here -->
+          An AI companion for mindful reflection and structured thinking, using generative AI to guide users through introspective exercises, thought organisation, and clarity-building. Demonstrates the application of AI in human-centred, non-commercial contexts.
+        </p>
+        <div class="app-card-footer">
+          <div class="app-tech-tags">
+            <span class="tech-tag">Generative AI</span>
+            <span class="tech-tag">Wellbeing</span>
+            <span class="tech-tag">HF Spaces</span>
+          </div>
+          <a href="YOUR_HF_SPACE_URL_HERE" target="_blank" rel="noopener" class="app-link">
+            Launch
+            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THINKING -->
+<section id="thinking">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Thinking</h2>
+  </div>
+  <div class="thinking-grid">
+
+    <!-- THINKING CARD 1 -->
+    <div class="thinking-card">
+      <p class="thinking-type">Framework</p>
+      <h3 class="thinking-title"><!-- Framework title here --></h3>
+      <p class="thinking-desc"><!-- One-paragraph description of this framework or matrix --></p>
+      <a href="assets/pdfs/framework-1.pdf" target="_blank" class="thinking-link">
+        View PDF
+        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+
+    <!-- THINKING CARD 2 -->
+    <div class="thinking-card">
+      <p class="thinking-type">Point of View</p>
+      <h3 class="thinking-title"><!-- POV title here --></h3>
+      <p class="thinking-desc"><!-- One-paragraph description of this point of view or write-up --></p>
+      <a href="assets/pdfs/pov-1.pdf" target="_blank" class="thinking-link">
+        Read Write-up
+        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+
+    <!-- THINKING CARD 3 — Placeholder for future content -->
+    <div class="thinking-placeholder">
+      <svg style="width:1.5rem;height:1.5rem;stroke:var(--ink-muted);stroke-width:1;fill:none;opacity:0.4" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <span>More thinking<br>coming soon</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="footer-name">Ritwick Das</div>
+    <div class="footer-sub">AI Strategist &amp; Builder · rdexplore.github.io</div>
+  </div>
+  <div class="footer-right">
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#applications">Applications</a></li>
+      <li><a href="#thinking">Thinking</a></li>
+      <li><a href="https://www.linkedin.com/in/ritwick-das" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/rdexplore" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 Ritwick Das. Built on GitHub Pages.</div>
+  </div>
+</footer>
+
+</body>
+</html>
