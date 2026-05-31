@@ -255,11 +255,16 @@
     align-items: start;
   }
 
-  .about-left {}
+  .about-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .about-photo-placeholder {
-    width: 60%;
-    aspect-ratio: 1/1;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
     background: var(--paper-card);
     border: 0.5px solid var(--rule);
     display: flex;
@@ -268,6 +273,7 @@
     justify-content: center;
     gap: 0.75rem;
     margin-bottom: 2rem;
+    overflow: hidden;
   }
 
   .about-photo-placeholder span {
@@ -404,16 +410,16 @@
   #applications { background: var(--paper); }
 
   .apps-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
   }
 
   .app-card {
     background: var(--paper-card);
     border: 0.5px solid var(--rule);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 420px 1fr;
     transition: border-color 0.25s;
     position: relative;
     overflow: hidden;
@@ -423,9 +429,9 @@
 
   .app-card-image {
     width: 100%;
-    aspect-ratio: 16/9;
+    height: 260px;
     background: var(--paper-warm);
-    border-bottom: 0.5px solid var(--rule);
+    border-right: 0.5px solid var(--rule);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -730,7 +736,8 @@
     .hero-right { padding: 3rem 1.5rem 4rem; }
     section { padding: 5rem 1.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .apps-grid { grid-template-columns: 1fr; }
+    .app-card { grid-template-columns: 1fr; }
+    .app-card-image { height: 200px; border-right: none; border-bottom: 0.5px solid var(--rule); }
     .thinking-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 2rem; align-items: flex-start; }
     .footer-right { text-align: left; }
@@ -792,7 +799,7 @@
   <div class="about-grid">
     <div class="about-left">
       <div class="about-photo-placeholder">
-        <img src="assets/images/photo.jpg" alt="Ritwick Das" style="width:100%;height:100%;object-fit:cover;">
+        <img src="photo.jpg" alt="Ritwick Das" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/ritwick-das" target="_blank" rel="noopener" class="social-link">
@@ -856,12 +863,7 @@
     <div class="app-card">
       <div class="app-card-image">
         <span class="app-tag">MCP Automation</span>
-        <!-- Replace the placeholder below with:
-             <img src="daily-ai-intelligence.png" alt="Daily AI Intelligence screenshot">
-        <div class="app-card-image-placeholder">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add screenshot here</span>
-        </div>
+        <img src="daily-ai-intelligence.png" alt="Daily AI Intelligence screenshot">
       </div>
       <div class="app-card-body">
         <h3 class="app-card-name">Daily AI Intelligence</h3>
@@ -876,7 +878,7 @@
             <span class="tech-tag">Automation</span>
             <span class="tech-tag">Python</span>
           </div>
-          <a href="https://rdexplore-daily-ai.static.hf.space." target="_blank" rel="noopener" class="app-link">
+          <a href="https://rdexplore-daily-ai.static.hf.space" target="_blank" rel="noopener" class="app-link">
             Launch
             <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
@@ -888,11 +890,7 @@
     <div class="app-card">
       <div class="app-card-image">
         <span class="app-tag">Multimodal Model</span>
-        <!-- Replace with: <img src="signal.png" alt="Signal screenshot">
-        <div class="app-card-image-placeholder">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          <span>Add screenshot here</span>
-        </div>
+        <img src="signal.png" alt="Signal app screenshot">
       </div>
       <div class="app-card-body">
         <h3 class="app-card-name">Signal</h3>
@@ -907,7 +905,7 @@
             <span class="tech-tag">HF Spaces</span>
             <span class="tech-tag">Gradio</span>
           </div>
-          <a href="https://rdexplore-signal.hf.space." target="_blank" rel="noopener" class="app-link">
+          <a href="https://rdexplore-signal.hf.space" target="_blank" rel="noopener" class="app-link">
             Launch
             <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
@@ -919,11 +917,7 @@
     <div class="app-card">
       <div class="app-card-image">
         <span class="app-tag">Agent Ecosystem</span>
-        <!-- Replace with: <img src="govlens.png" alt="GovLens screenshot">
-        <div class="app-card-image-placeholder">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-          <span>Add screenshot here</span>
-        </div>
+        <img src="govlens.png" alt="GovLens screenshot">
       </div>
       <div class="app-card-body">
         <h3 class="app-card-name">AI GovLens</h3>
@@ -938,7 +932,7 @@
             <span class="tech-tag">ISO 42001</span>
             <span class="tech-tag">Governance</span>
           </div>
-          <a href="https://rdexplore-ai-govlens.hf.space." target="_blank" rel="noopener" class="app-link">
+          <a href="https://rdexplore-ai-govlens.hf.space" target="_blank" rel="noopener" class="app-link">
             Launch
             <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
@@ -950,11 +944,7 @@
     <div class="app-card">
       <div class="app-card-image">
         <span class="app-tag">Reflective AI</span>
-        <!-- Replace with: <img src="mindmap.png" alt="Mindmap screenshot">
-        <div class="app-card-image-placeholder">
-          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 1 5 5c0 2.5-2 4.5-4.5 5.5M12 22v-4M8 18h8"/><circle cx="12" cy="7" r="2"/></svg>
-          <span>Add screenshot here</span>
-        </div>
+        <img src="mindmap.png" alt="Mindmap screenshot">
       </div>
       <div class="app-card-body">
         <h3 class="app-card-name">Mindmap</h3>
@@ -969,7 +959,7 @@
             <span class="tech-tag">Wellbeing</span>
             <span class="tech-tag">HF Spaces</span>
           </div>
-          <a href="https://rdexplore-mind-map.hf.space." target="_blank" rel="noopener" class="app-link">
+          <a href="https://rdexplore-mind-map.hf.space" target="_blank" rel="noopener" class="app-link">
             Launch
             <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
