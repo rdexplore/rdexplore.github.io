@@ -2,1034 +2,252 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ritwick Das — AI Strategist & Builder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ritwick Das — AI Strategist &amp; Builder</title>
+<meta name="description" content="Ritwick Das is an AI strategist and builder: 13+ years of global consulting, four live AI applications, and ISO 42001 AI governance. Strategy, applied AI and governance in one practice.">
+<meta name="theme-color" content="#0a2e22">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ritwick Das — AI Strategist &amp; Builder">
+<meta property="og:description" content="AI strategy, built. Four live applications across agents, MCP automation, specialized models and governance.">
+<meta property="og:image" content="assets/img/govlens.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a2e22'/%3E%3Cpath d='M9 24V8h8a5 5 0 0 1 0 10h-8m8 0 6 6' fill='none' stroke='%23d9f56a' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #0f0f0e;
-    --ink-soft: #3a3a36;
-    --ink-muted: #7a7a72;
-    --paper: #f5f3ee;
-    --paper-warm: #ede9e0;
-    --paper-card: #faf8f4;
-    --accent: #b8622a;
-    --accent-light: #e8d5c4;
-    --accent-dark: #7a3f18;
-    --rule: rgba(15,15,14,0.12);
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-mono: 'DM Mono', monospace;
-    --font-body: 'Outfit', sans-serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 4rem;
-    background: rgba(245,243,238,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--rule);
-  }
-
-  .nav-logo {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--accent); }
-
-  /* HERO */
-  #hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 5rem;
-  }
-
-  .hero-left {
-    padding: 8rem 4rem 6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-right: 0.5px solid var(--rule);
-  }
-
-  .hero-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-name {
-    font-family: var(--font-display);
-    font-size: clamp(3.5rem, 6vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-name em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    font-weight: 300;
-    font-style: italic;
-    color: var(--ink-muted);
-    margin-bottom: 3rem;
-    letter-spacing: 0.01em;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    background: var(--ink);
-    color: var(--paper);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .btn-primary:hover { background: var(--accent); }
-
-  .btn-outline {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    border: 0.5px solid var(--ink-soft);
-    color: var(--ink-soft);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
-  .hero-right {
-    padding: 8rem 4rem 6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-right::before {
-    content: 'AI';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: var(--font-display);
-    font-size: 22rem;
-    font-weight: 600;
-    color: rgba(184,98,42,0.05);
-    pointer-events: none;
-    letter-spacing: -0.05em;
-    white-space: nowrap;
-  }
-
-  .hero-stat-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-
-  .hero-stat {
-    padding: 2rem 1.5rem;
-    background: var(--paper-card);
-    border: 0.5px solid var(--rule);
-  }
-
-  .hero-stat-number {
-    font-family: var(--font-display);
-    font-size: 2.8rem;
-    font-weight: 300;
-    line-height: 1;
-    color: var(--accent);
-    margin-bottom: 0.4rem;
-  }
-
-  .hero-stat-label {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-  }
-
-  /* SECTION COMMONS */
-  section { padding: 7rem 4rem; }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    margin-bottom: 4rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 0.5px solid var(--rule);
-  }
-
-  .section-number {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-  }
-
-  /* ABOUT */
-  #about { background: var(--paper-warm); }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 6rem;
-    align-items: start;
-  }
-
-  .about-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: sticky;
-    top: 6rem;
-    align-self: start;
-  }
-
-  .about-photo-placeholder {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    background: var(--paper-card);
-    border: 0.5px solid var(--rule);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-    overflow: hidden;
-  }
-
-  .about-photo-placeholder span {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-  }
-
-  .about-photo-placeholder svg {
-    width: 2.5rem;
-    height: 2.5rem;
-    stroke: var(--ink-muted);
-    stroke-width: 1;
-    fill: none;
-  }
-
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-    color: var(--ink-soft);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    transition: color 0.2s;
-    padding: 0.6rem 0;
-    border-bottom: 0.5px solid var(--rule);
-  }
-
-  .social-link:hover { color: var(--accent); }
-
-  .social-link svg {
-    width: 1rem;
-    height: 1rem;
-    stroke: currentColor;
-    stroke-width: 1.5;
-    fill: none;
-    flex-shrink: 0;
-  }
-
-  .about-right {}
-
-  .about-bio {
-    font-family: var(--font-body);
-    font-size: 1.05rem;
-    font-weight: 300;
-    line-height: 1.85;
-    color: var(--ink-soft);
-    margin-bottom: 3rem;
-  }
-
-  .about-bio strong {
-    font-weight: 500;
-    color: var(--ink);
-  }
-
-  .cert-block {
-    margin-bottom: 3rem;
-  }
-
-  .block-label {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.25rem;
-  }
-
-  .cert-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .cert-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    padding: 0.9rem 1rem;
-    background: var(--paper-card);
-    border-left: 2px solid var(--accent-light);
-  }
-
-  .cert-list li::before {
-    content: '—';
-    font-family: var(--font-mono);
-    color: var(--accent);
-    flex-shrink: 0;
-    font-size: 0.8rem;
-    margin-top: 0.1rem;
-  }
-
-  .values-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--rule);
-  }
-
-  .value-item {
-    background: var(--paper-card);
-    padding: 1.25rem 1rem;
-  }
-
-  .value-title {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.4rem;
-  }
-
-  .value-desc {
-    font-size: 0.82rem;
-    color: var(--ink-muted);
-    line-height: 1.5;
-  }
-
-  /* APPLICATIONS */
-  #applications { background: var(--paper); }
-
-  .apps-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .app-card {
-    background: var(--paper-card);
-    border: 0.5px solid var(--rule);
-    display: grid;
-    grid-template-columns: 420px 1fr;
-    transition: border-color 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .app-card:hover { border-color: var(--accent); }
-
-  .app-card-image {
-    width: 100%;
-    height: 260px;
-    background: var(--paper-warm);
-    border-right: 0.5px solid var(--rule);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .app-card-image-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .app-card-image-placeholder svg {
-    width: 2rem;
-    height: 2rem;
-    stroke: var(--ink-muted);
-    stroke-width: 1;
-    fill: none;
-    opacity: 0.5;
-  }
-
-  .app-card-image-placeholder span {
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    opacity: 0.6;
-  }
-
-  .app-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .app-tag {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    background: var(--ink);
-    color: var(--paper);
-    padding: 0.3rem 0.6rem;
-  }
-
-  .app-card-body {
-    padding: 1.75rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .app-card-name {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.1;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
-  }
-
-  .app-card-subtitle {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-
-  .app-card-desc {
-    font-size: 0.875rem;
-    color: var(--ink-muted);
-    line-height: 1.7;
-    flex: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .app-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 1rem;
-    border-top: 0.5px solid var(--rule);
-  }
-
-  .app-tech-tags {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-  }
-
-  .tech-tag {
-    font-family: var(--font-mono);
-    font-size: 0.55rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    border: 0.5px solid var(--rule);
-    padding: 0.2rem 0.5rem;
-  }
-
-  .app-link {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    transition: gap 0.2s;
-    flex-shrink: 0;
-  }
-
-  .app-link:hover { gap: 0.7rem; }
-
-  .app-link svg {
-    width: 0.8rem;
-    height: 0.8rem;
-    stroke: currentColor;
-    stroke-width: 2;
-    fill: none;
-  }
-
-  /* THINKING */
-  #thinking { background: var(--paper-warm); }
-
-  .thinking-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .thinking-card {
-    background: var(--paper-card);
-    border: 0.5px solid var(--rule);
-    padding: 2rem 1.75rem;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.25s;
-  }
-
-  .thinking-card:hover { border-color: var(--accent); }
-
-  .thinking-type {
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-
-  .thinking-title {
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 0.75rem;
-  }
-
-  .thinking-desc {
-    font-size: 0.82rem;
-    color: var(--ink-muted);
-    line-height: 1.65;
-    flex: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .thinking-link {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    transition: color 0.2s, gap 0.2s;
-    border-top: 0.5px solid var(--rule);
-    padding-top: 1rem;
-  }
-
-  .thinking-link:hover { color: var(--accent); gap: 0.7rem; }
-
-  .thinking-link svg {
-    width: 0.75rem;
-    height: 0.75rem;
-    stroke: currentColor;
-    stroke-width: 2;
-    fill: none;
-  }
-
-  .thinking-placeholder {
-    background: var(--paper-card);
-    border: 0.5px dashed var(--rule);
-    padding: 2rem 1.75rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    min-height: 200px;
-  }
-
-  .thinking-placeholder span {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    opacity: 0.5;
-    text-align: center;
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  .footer-name {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--paper);
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-sub {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(245,243,238,0.4);
-  }
-
-  .footer-right {
-    text-align: right;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-    margin-bottom: 1rem;
-    justify-content: flex-end;
-  }
-
-  .footer-links a {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(245,243,238,0.5);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--accent); }
-
-  .footer-copy {
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    letter-spacing: 0.08em;
-    color: rgba(245,243,238,0.25);
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(1.5rem); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
-  .hero-name { animation: fadeUp 0.6s 0.1s ease both; }
-  .hero-title { animation: fadeUp 0.6s 0.2s ease both; }
-  .hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
-  .hero-stat-grid { animation: fadeUp 0.6s 0.2s ease both; }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.25rem; }
-    #hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 7rem 1.5rem 3rem; border-right: none; border-bottom: 0.5px solid var(--rule); }
-    .hero-right { padding: 3rem 1.5rem 4rem; }
-    section { padding: 5rem 1.5rem; }
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .app-card { grid-template-columns: 1fr; }
-    .app-card-image { height: 200px; border-right: none; border-bottom: 0.5px solid var(--rule); }
-    .thinking-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 2rem; align-items: flex-start; }
-    .footer-right { text-align: left; }
-    .footer-links { justify-content: flex-start; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- NAV -->
-<nav>
-  <a href="#hero" class="nav-logo">Ritwick Das</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#applications">Applications</a></li>
-    <li><a href="#thinking">Thinking</a></li>
-  </ul>
-</nav>
+<header class="bar" id="bar">
+  <a class="bar-name" href="#cover">Ritwick Das</a>
+  <nav class="bar-nav" id="bar-nav" aria-label="Slides">
+    <a href="#summary">Summary</a>
+    <a href="#applications">Applications</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#beliefs">Beliefs</a>
+    <a href="#story">Story</a>
+    <a href="#thinking">Thinking</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="bar-menu" id="bar-menu" aria-expanded="false" aria-controls="bar-nav">Slides</button>
+  <div class="bar-count" aria-hidden="true"><b id="cur">1</b> <span>/ 8</span></div>
+  <div class="progress" id="progress"></div>
+</header>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">AI Strategist &amp; Builder</p>
-    <h1 class="hero-name">Ritwick<br><em>Das</em></h1>
-    <p class="hero-title">Strategy × Applied AI × Governance</p>
-    <div class="hero-cta">
-      <a href="#applications" class="btn-primary">View Applications</a>
-      <a href="#about" class="btn-outline">About Me</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-stat-grid">
-      <div class="hero-stat">
-        <div class="hero-stat-number">13+</div>
-        <div class="hero-stat-label">Years Global Consulting</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-number">4+</div>
-        <div class="hero-stat-label">Live AI Applications</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-number">ISO 42001</div>
-        <div class="hero-stat-label">AIMS Lead Implementer Certified</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-number">∞</div>
-        <div class="hero-stat-label">Curiosity Remaining</div>
+<main id="main">
+
+<!-- 1 · COVER -->
+<section class="slide dark cover" id="cover" aria-labelledby="cover-h">
+  <div class="slide-body">
+    <div>
+      <h1 class="cover-title" id="cover-h">
+        <span class="line"><span>AI strategy,</span></span>
+        <span class="line"><span><em>built.</em></span></span>
+      </h1>
+      <p class="cover-sub cover-fade">Strategy × Applied AI × Governance</p>
+      <p class="cover-by cover-fade">Prepared by <strong>Ritwick Das</strong>, AI Strategist &amp; Builder</p>
+      <div class="cover-actions cover-fade">
+        <a class="btn btn-solid" href="#applications">See the live applications
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/ritwick-das" target="_blank" rel="noopener">Contact on LinkedIn
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
       </div>
     </div>
+    <figure class="portrait">
+      <img src="assets/img/photo.jpg" width="1312" height="1600" alt="Portrait of Ritwick Das" fetchpriority="high">
+      <figcaption>Ritwick Das</figcaption>
+    </figure>
   </div>
+  <div class="slide-foot"><span>13+ years of global consulting · Four live AI applications · ISO 42001 Lead Implementer</span><span>Ritwick Das · 1</span></div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-header">
-    <span class="section-number">01</span>
-    <h2 class="section-title">About Me</h2>
-  </div>
-  <div class="about-grid">
-    <div class="about-left">
-      <div class="about-photo-placeholder">
-        <img src="photo.jpg" alt="Ritwick Das" style="width:100%;height:100%;object-fit:cover;">
-      </div>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/ritwick-das" target="_blank" rel="noopener" class="social-link">
-          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-      </div>
-    </div>
-    <div class="about-right">
-      <p class="about-bio">
-        I'm an <strong>AI strategist and builder</strong> with 13+ years of global consulting experience advising enterprises in strategy and AI activation roadmaps, while independently building across the applied AI stack: multi-agent validators, multi-model intelligence pipelines, MCP-based workflow automations, and deploying local LLM models via open source models platforms such as Ollama and Hugging Face. I'm also a <strong>Claude Certified Architect</strong>, reflecting hands-on depth in designing and deploying agentic AI systems.
-        <br><br>
-        On the governance side, I'm an <strong>ISO 42001 AI Management Systems Lead Implementer</strong> certified and have designed responsible AI frameworks for clients in regulated environments.
-        <br><br>
-        My pivot towards AI is driven by the conviction that the most valuable people in the AI era are those who can think strategically about where AI creates value and are fluent enough in the technology to actually make it happen.
-      </p>
-
-      <div class="cert-block">
-        <p class="block-label">Certifications</p>
-        <ul class="cert-list">
-          <li>ISO 42001 Lead Implementer — AI Management Systems</li>
-          <li>Claude Certified Architect</li>
-          <li>Project Management Professional, PMP</li>
-          <li>Azure AI -900</li>
-        </ul>
-      </div>
-
-      <div class="cert-block">
-        <p class="block-label">What I Stand For</p>
-        <div class="values-grid">
-          <div class="value-item">
-            <div class="value-title">Strategic Fluency</div>
-            <div class="value-desc">AI value comes from knowing where to apply it, not just how to build it.</div>
-          </div>
-          <div class="value-item">
-            <div class="value-title">Responsible by Design</div>
-            <div class="value-desc">Governance and capability are not opposing forces — they compound.</div>
-          </div>
-          <div class="value-item">
-            <div class="value-title">Builder Mindset</div>
-            <div class="value-desc">Ideas without implementation are just opinions. Ship, learn, iterate.</div>
-          </div>
-          <div class="value-item">
-            <div class="value-title">Human-Centred AI</div>
-            <div class="value-desc">The best AI systems amplify human judgment, not replace it.</div>
-          </div>
+<!-- 2 · EXECUTIVE SUMMARY -->
+<section class="slide" id="summary" aria-labelledby="summary-h">
+  <div class="slide-body">
+    <h2 class="title" id="summary-h">I connect <span class="mk">where AI creates value</span> to the <span class="mk">systems that deliver it</span>.</h2>
+    <div class="summary-grid">
+      <div>
+        <div class="sum-row">
+          <h3>Advise</h3>
+          <p><strong>13+ years of global consulting</strong>, advising enterprises on strategy and AI activation roadmaps.</p>
+          <a class="textlink" href="#story">Read the story</a>
+        </div>
+        <div class="sum-row">
+          <h3>Build</h3>
+          <p>Independent work across the applied AI stack: <strong>multi-agent validators, multi-model intelligence pipelines, MCP-based workflow automation</strong>, and local LLMs through Ollama and Hugging Face. Claude Certified Architect.</p>
+          <a class="textlink" href="#applications">See four live apps</a>
+        </div>
+        <div class="sum-row">
+          <h3>Govern</h3>
+          <p><strong>ISO 42001 AI Management Systems Lead Implementer</strong>, with responsible AI frameworks designed for clients in regulated environments.</p>
+          <a class="textlink" href="#credentials">See credentials</a>
         </div>
       </div>
     </div>
   </div>
+  <div class="slide-foot"><span>Source: professional experience and certifications of Ritwick Das</span><span>Ritwick Das · 2</span></div>
 </section>
 
-<!-- APPLICATIONS -->
-<section id="applications">
-  <div class="section-header">
-    <span class="section-number">02</span>
-    <h2 class="section-title">Applications</h2>
+<!-- 3 · EXHIBIT: APPLICATIONS -->
+<section class="slide" id="applications" aria-labelledby="apps-h">
+  <div class="slide-body">
+    <h2 class="title" id="apps-h">Four live applications cover <span class="mk">agents, automation, specialized models</span> and governance.</h2>
+
+    <div class="exhibit-head">
+      <p class="exhibit-cap">Exhibit 1 <span>· Applications by capability demonstrated</span></p>
+      <p class="exhibit-hint"><span>Select a capability to filter, or an application to open it.</span>
+        <button class="clear" id="clear" type="button">Show all</button></p>
+    </div>
+
+    <table class="matrix" id="matrix">
+      <caption class="visually-hidden">Capabilities demonstrated by each application</caption>
+      <thead>
+        <tr>
+          <th scope="col"><span class="visually-hidden">Application</span></th>
+          <th scope="col"><button class="cap" type="button" data-cap="mcp" aria-pressed="false">MCP workflow automation</button></th>
+          <th scope="col"><button class="cap" type="button" data-cap="models" aria-pressed="false">Specialized, multimodal models</button></th>
+          <th scope="col"><button class="cap" type="button" data-cap="agents" aria-pressed="false">Multi-agent validation</button></th>
+          <th scope="col"><button class="cap" type="button" data-cap="gov" aria-pressed="false">Governance by design</button></th>
+          <th scope="col"><button class="cap" type="button" data-cap="genai" aria-pressed="false">Human-centred generative AI</button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-app="daily">
+          <th scope="row"><button class="app-pick" type="button" data-pick="daily" aria-pressed="true"><b><span class="nm">Daily AI Intelligence</span></b><small>Automated MCP-driven intelligence pipeline</small></button></th>
+          <td data-cap="mcp" class="on"><span class="dot"></span><span class="lbl">MCP workflow automation</span><span class="visually-hidden">Demonstrated</span></td>
+          <td data-cap="models"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="agents"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="gov"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="genai"><span class="visually-hidden">Not demonstrated</span></td>
+        </tr>
+        <tr data-app="signal">
+          <th scope="row"><button class="app-pick" type="button" data-pick="signal" aria-pressed="false"><b><span class="nm">Signal</span></b><small>Multimodal and specialized model application</small></button></th>
+          <td data-cap="mcp"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="models" class="on"><span class="dot"></span><span class="lbl">Specialized, multimodal models</span><span class="visually-hidden">Demonstrated</span></td>
+          <td data-cap="agents"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="gov"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="genai"><span class="visually-hidden">Not demonstrated</span></td>
+        </tr>
+        <tr data-app="govlens">
+          <th scope="row"><button class="app-pick" type="button" data-pick="govlens" aria-pressed="false"><b><span class="nm">AI GovLens</span></b><small>Multi-agent governance validation system</small></button></th>
+          <td data-cap="mcp"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="models"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="agents" class="on"><span class="dot"></span><span class="lbl">Multi-agent validation</span><span class="visually-hidden">Demonstrated</span></td>
+          <td data-cap="gov" class="on"><span class="dot"></span><span class="lbl">Governance by design</span><span class="visually-hidden">Demonstrated</span></td>
+          <td data-cap="genai"><span class="visually-hidden">Not demonstrated</span></td>
+        </tr>
+        <tr data-app="mindmap">
+          <th scope="row"><button class="app-pick" type="button" data-pick="mindmap" aria-pressed="false"><b><span class="nm">Mindmap</span></b><small>AI-powered mindfulness and reflection tool</small></button></th>
+          <td data-cap="mcp"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="models"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="agents"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="gov"><span class="visually-hidden">Not demonstrated</span></td>
+          <td data-cap="genai" class="on"><span class="dot"></span><span class="lbl">Human-centred generative AI</span><span class="visually-hidden">Demonstrated</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="detail" id="detail" aria-live="polite">
+      <div class="frame">
+        <div class="frame-top"><i></i><i></i><i></i><span id="d-host">rdexplore-daily-ai.static.hf.space</span></div>
+        <div class="frame-shot"><img id="d-img" src="assets/img/daily-ai-intelligence.png" width="1876" height="778" alt="Daily AI Intelligence screenshot"></div>
+      </div>
+      <div class="info">
+        <h3 id="d-name">Daily AI Intelligence</h3>
+        <p class="role" id="d-role">Automated MCP-driven intelligence pipeline</p>
+        <p id="d-desc">An automated intelligence aggregation system built on Model Context Protocol (MCP), delivering curated AI news, research signals, and market developments through a structured daily pipeline. Demonstrates MCP-based workflow orchestration at production scale.</p>
+        <ul class="tags" id="d-tags"><li>MCP</li><li>Automation</li><li>Python</li></ul>
+        <a class="btn btn-ink" id="d-link" href="https://rdexplore-daily-ai.static.hf.space" target="_blank" rel="noopener">Launch application
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
   </div>
-  <div class="apps-grid">
-
-    <!-- CARD 1: Daily AI Intelligence -->
-    <div class="app-card">
-      <div class="app-card-image">
-        <span class="app-tag">MCP Automation</span>
-        <img src="daily-ai-intelligence.png" alt="Daily AI Intelligence screenshot">
-      </div>
-      <div class="app-card-body">
-        <h3 class="app-card-name">Daily AI Intelligence</h3>
-        <p class="app-card-subtitle">Automated MCP-driven intelligence pipeline</p>
-        <p class="app-card-desc">
-          <!-- Add your description here. Example: -->
-          An automated intelligence aggregation system built on Model Context Protocol (MCP), delivering curated AI news, research signals, and market developments through a structured daily pipeline. Demonstrates MCP-based workflow orchestration at production scale.
-        </p>
-        <div class="app-card-footer">
-          <div class="app-tech-tags">
-            <span class="tech-tag">MCP</span>
-            <span class="tech-tag">Automation</span>
-            <span class="tech-tag">Python</span>
-          </div>
-          <a href="https://rdexplore-daily-ai.static.hf.space" target="_blank" rel="noopener" class="app-link">
-            Launch
-            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 2: Signal -->
-    <div class="app-card">
-      <div class="app-card-image">
-        <span class="app-tag">Multimodal Model</span>
-        <img src="signal.png" alt="Signal app screenshot">
-      </div>
-      <div class="app-card-body">
-        <h3 class="app-card-name">Signal</h3>
-        <p class="app-card-subtitle">Multimodal & specialized model application</p>
-        <p class="app-card-desc">
-          <!-- Add your description here -->
-          A multimodal intelligence application leveraging specialized models to process and synthesize signals across different data modalities. Built to demonstrate applied model selection, prompt engineering, and output structuring at the intersection of finance and AI.
-        </p>
-        <div class="app-card-footer">
-          <div class="app-tech-tags">
-            <span class="tech-tag">Multimodal</span>
-            <span class="tech-tag">HF Spaces</span>
-            <span class="tech-tag">Gradio</span>
-          </div>
-          <a href="https://rdexplore-signal.hf.space" target="_blank" rel="noopener" class="app-link">
-            Launch
-            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 3: GovLens -->
-    <div class="app-card">
-      <div class="app-card-image">
-        <span class="app-tag">Agent Ecosystem</span>
-        <img src="govlens.png" alt="GovLens screenshot">
-      </div>
-      <div class="app-card-body">
-        <h3 class="app-card-name">AI GovLens</h3>
-        <p class="app-card-subtitle">Multi-agent governance validation system</p>
-        <p class="app-card-desc">
-          <!-- Add your description here -->
-          A multi-agent ecosystem where specialized AI agents validate each other's outputs against responsible AI principles. Implements a validator-agent architecture with cross-model critique loops, grounded in ISO 42001 governance principles. Applied AI governance in practice.
-        </p>
-        <div class="app-card-footer">
-          <div class="app-tech-tags">
-            <span class="tech-tag">Multi-Agent</span>
-            <span class="tech-tag">ISO 42001</span>
-            <span class="tech-tag">Governance</span>
-          </div>
-          <a href="https://rdexplore-ai-govlens.hf.space" target="_blank" rel="noopener" class="app-link">
-            Launch
-            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- CARD 4: Mindmap -->
-    <div class="app-card">
-      <div class="app-card-image">
-        <span class="app-tag">Reflective AI</span>
-        <img src="mindmap.png" alt="Mindmap screenshot">
-      </div>
-      <div class="app-card-body">
-        <h3 class="app-card-name">Mindmap</h3>
-        <p class="app-card-subtitle">AI-powered mindfulness & reflection tool</p>
-        <p class="app-card-desc">
-          <!-- Add your description here -->
-          An AI companion for mindful reflection and structured thinking, using generative AI to guide users through introspective exercises, thought organisation, and clarity-building. Demonstrates the application of AI in human-centred, non-commercial contexts.
-        </p>
-        <div class="app-card-footer">
-          <div class="app-tech-tags">
-            <span class="tech-tag">Generative AI</span>
-            <span class="tech-tag">Wellbeing</span>
-            <span class="tech-tag">HF Spaces</span>
-          </div>
-          <a href="https://rdexplore-mind-map.hf.space" target="_blank" rel="noopener" class="app-link">
-            Launch
-            <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <div class="slide-foot"><span>Source: applications built and deployed by Ritwick Das, hosted on Hugging Face Spaces</span><span>Ritwick Das · 3</span></div>
 </section>
 
-<!-- THINKING -->
-<section id="thinking">
-  <div class="section-header">
-    <span class="section-number">03</span>
-    <h2 class="section-title">Thinking</h2>
+<!-- 4 · CREDENTIALS -->
+<section class="slide" id="credentials" aria-labelledby="cred-h">
+  <div class="slide-body">
+    <h2 class="title" id="cred-h">Governance is <span class="mk">part of how I build</span>, not a review at the end.</h2>
+    <div class="cred-grid">
+      <div class="copy">
+        <p>On the governance side, I'm an <strong>ISO 42001 AI Management Systems Lead Implementer</strong> and have designed responsible AI frameworks for clients in regulated environments.</p>
+        <p>I'm also a <strong>Claude Certified Architect</strong>, reflecting hands-on depth in designing and deploying agentic AI systems.</p>
+        <p style="margin-top:1.6rem"><button class="textlink" type="button" data-open-app="govlens" data-filter="gov">See governance in AI GovLens
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></p>
+      </div>
+      <table class="cred-table">
+        <caption>Exhibit 2 <span>· Certifications held</span></caption>
+        <thead><tr><th scope="col">Certification</th><th scope="col">Area</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">ISO 42001 Lead Implementer<small>AI Management Systems</small></th><td>Responsible AI governance</td></tr>
+          <tr><th scope="row">Claude Certified Architect</th><td>Agentic AI systems</td></tr>
+          <tr><th scope="row">Project Management Professional<small>PMP</small></th><td>Delivery and programme management</td></tr>
+          <tr><th scope="row">Azure AI Fundamentals<small>AI-900</small></th><td>Cloud AI services</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div class="thinking-grid">
-
-    <!-- THINKING CARD 1 -->
-    <div class="thinking-card">
-      <p class="thinking-type">Framework</p>
-      <h3 class="thinking-title"><!-- Framework title here --></h3>
-      <p class="thinking-desc"><!-- One-paragraph description of this framework or matrix --></p>
-      <a href="assets/pdfs/framework-1.pdf" target="_blank" class="thinking-link">
-        View PDF
-        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </a>
-    </div>
-
-    <!-- THINKING CARD 2 -->
-    <div class="thinking-card">
-      <p class="thinking-type">Point of View</p>
-      <h3 class="thinking-title"><!-- POV title here --></h3>
-      <p class="thinking-desc"><!-- One-paragraph description of this point of view or write-up --></p>
-      <a href="assets/pdfs/pov-1.pdf" target="_blank" class="thinking-link">
-        Read Write-up
-        <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
-      </a>
-    </div>
-
-    <!-- THINKING CARD 3 — Placeholder for future content -->
-    <div class="thinking-placeholder">
-      <svg style="width:1.5rem;height:1.5rem;stroke:var(--ink-muted);stroke-width:1;fill:none;opacity:0.4" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      <span>More thinking<br>coming soon</span>
-    </div>
-
-  </div>
+  <div class="slide-foot"><span>Source: certifications held by Ritwick Das</span><span>Ritwick Das · 4</span></div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-left">
-    <div class="footer-name">Ritwick Das</div>
-    <div class="footer-sub">AI Strategist &amp; Builder · rdexplore.github.io</div>
+<!-- 5 · BELIEFS -->
+<section class="slide" id="beliefs" aria-labelledby="beliefs-h">
+  <div class="slide-body">
+    <h2 class="title" id="beliefs-h">Four beliefs shape how I <span class="mk">work</span>.</h2>
+    <div class="beliefs">
+      <div class="belief"><h3>Strategic fluency</h3><p>AI value comes from knowing where to apply it, not just how to build it.</p></div>
+      <div class="belief"><h3>Responsible by design</h3><p>Governance and capability are not opposing forces — they compound.</p></div>
+      <div class="belief"><h3>Builder mindset</h3><p>Ideas without implementation are just opinions. Ship, learn, iterate.</p></div>
+      <div class="belief"><h3>Human-centred AI</h3><p>The best AI systems amplify human judgment, not replace it.</p></div>
+    </div>
   </div>
-  <div class="footer-right">
-    <ul class="footer-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#applications">Applications</a></li>
-      <li><a href="#thinking">Thinking</a></li>
-      <li><a href="https://www.linkedin.com/in/ritwick-das" target="_blank" rel="noopener">LinkedIn</a></li>
-      
+  <div class="slide-foot"><span>Source: Ritwick Das</span><span>Ritwick Das · 5</span></div>
+</section>
+
+<!-- 6 · STORY -->
+<section class="slide" id="story" aria-labelledby="story-h">
+  <div class="slide-body">
+    <h2 class="title" id="story-h">The pivot to AI rests on one conviction.</h2>
+    <div class="story-grid">
+      <p class="pull">“The most valuable people in the AI era are those who can <span class="mk">think strategically</span> about where AI creates value and are fluent enough in the technology to <span class="mk">actually make it happen</span>.”</p>
+      <div class="copy bio">
+        <p>I'm an <strong>AI strategist and builder</strong> with 13+ years of global consulting experience advising enterprises in strategy and AI activation roadmaps, while independently building across the applied AI stack: multi-agent validators, multi-model intelligence pipelines, MCP-based workflow automations, and deploying local LLM models via open source models platforms such as Ollama and Hugging Face.</p>
+        <p>On the governance side, I'm an <strong>ISO 42001 AI Management Systems Lead Implementer</strong> and have designed responsible AI frameworks for clients in regulated environments.</p>
+        <p style="margin-top:1.6rem"><a class="textlink" href="https://www.linkedin.com/in/ritwick-das" target="_blank" rel="noopener">Full background on LinkedIn
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-foot"><span>Source: Ritwick Das</span><span>Ritwick Das · 6</span></div>
+</section>
+
+<!-- 7 · THINKING -->
+<section class="slide" id="thinking" aria-labelledby="thinking-h">
+  <div class="slide-body">
+    <h2 class="title title-sm" id="thinking-h">Frameworks and points of view are <span class="mk">in preparation</span>.</h2>
+    <ul class="next">
+      <li><h3>Frameworks</h3><p>Structured matrices and decision tools for AI strategy and governance.</p><span class="soon">Coming soon</span></li>
+      <li><h3>Points of view</h3><p>Written perspectives on applied AI, agents and responsible deployment.</p><span class="soon">Coming soon</span></li>
     </ul>
-    <div class="footer-copy">© 2025 Ritwick Das. Built on GitHub Pages.</div>
   </div>
-</footer>
+  <div class="slide-foot"><span>Next update: published as PDFs on this site</span><span>Ritwick Das · 7</span></div>
+</section>
 
+<!-- 8 · CONTACT -->
+<section class="slide dark close" id="contact" aria-labelledby="contact-h">
+  <div class="slide-body">
+    <h2 class="title" id="contact-h">Let's discuss where AI <span class="mk">creates value</span> for you.</h2>
+    <p class="copy">Hiring for AI strategy and architecture, or exploring an AI activation roadmap? LinkedIn is the fastest way to reach me.</p>
+    <a class="btn btn-solid" href="https://www.linkedin.com/in/ritwick-das" target="_blank" rel="noopener">Message Ritwick on LinkedIn
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+  </div>
+  <div class="slide-foot"><span>© 2026 Ritwick Das · rdexplore.github.io</span><span>Ritwick Das · 8</span></div>
+</section>
+
+</main>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
